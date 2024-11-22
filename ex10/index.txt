@@ -1,0 +1,35 @@
+(a) Algorithm Analysis
+It reorganizes items within three successive blocks, I, I+1, and I+2 of a file with the following work: 
+
+1. The number of items in block I+2 is updated from a computed value ( Q + R ), where:
+(Q = text{Quotient}(2B+ text{Buf.nb}, 3)) 
+(R = text{Rest}(2B + text{Buf.nb}, 3) ).
+
+
+2. The blocks `I` and `I+1` are readjusted depending on whatever record have been shifted into the block `I+ 2`.
+The algorithm works towards a nice distribution of records across the blocks in order to achieve an optimum level of efficiency leaving sufficient free space for further insertions.
+In order to avoid fragmentation and to maintain the contents in blocks in proper balance,
+
+
+(b) Example Execution:
+
+- Let ( B = 8 ) this implies each block can hold not more than 8 items.
+The problem statement gives that,
+- Blocks ( I ) and ( I+1 ) full and block ( I+2 ) is partially filled.
+- the blocks contain the following content:
+
+
+| Block       | Items                  |
+|-------------|------------------------|
+| Block (I)   | A, B, C, D, E, F, G, H |
+| Block (I+1) | I, J, K, L, M, N, O, P |
+| Block (I+2) | Q, R, S                |
+
+
+Final Contents of Blocks:
+
+| Block       | Items               |
+|-------------|---------------------|
+| Block (I  ) | A, B, C, D          |
+| Block (I+1) | I, J, K, L, E, F    |
+| Block (I+2) | Q, R, S, M, N, O, P |
